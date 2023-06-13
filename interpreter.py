@@ -14,7 +14,9 @@ def brainfuck_reader(s):
         return idx
 
     while i < len(s) and 0 <= ptr < len(blocks):
-        if s[i] == '.':
+        if s[i] == ',':
+            blocks[ptr] = int(input('enter a block value: ')) % 256
+        elif s[i] == '.':
             out.append(blocks[ptr])
         elif s[i] == '[' and blocks[ptr] != 0:
             stack.append(i)
